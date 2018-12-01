@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Map 2 </title>
+
+<link rel ="stylesheet" type="text/css" href="styles/leaflet.css">
+
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Raleway" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
+
+<script src="js/places.json"></script>
+
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
+
+</head>
+<body>
+  <h1> Museums in Florida </h1>
+  <p> Florida is unfortunately known for two things: weird crime and Disney World. Those who live in Florida know that it is a place of vast cultural, social and scientific promise. The following 20 museums display this history and future through their uniquely curated displays and sites. </p>
+
+  <div id="mapid"></div>
+  <script>
+  var mymap = L.map('mapid').setView([28.444, -82.913], 6.00);
+  L.tileLayer('https://api.mapbox.com/styles/v1/hmb1898/cjp4v8ahk1rfz2rn60f84yjeh/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaG1iMTg5OCIsImEiOiJjanA0bGo2MDcwM2txM3FwZXBqbGllNWV4In0.gvpGmBgd-rfQRoFHkIYHHw', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18
+  }).addTo(mymap);
+
+  for (let i = 0; i < places.length; i++) {
+    L.marker( [places[i].latitude, places[i].longitude] )
+    .bindPopup('<h3>' + places[i].placeName + '</h3>' + '<p>' + places[i].descrip + '</p>' + '<p>' + places[i].url + '</p>')
+    .addTo(mymap);
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Leaflet </title>
+
+<link rel="stylesheet" type="text/css"
+href="styles/leaflet.css">
+
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Raleway" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
+
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
+
+</head>
+
+<body>
+  <h1> Museums in Jacksonville, Florida </h1>
+  <p> Jacksonville, Florida is home to cultural & ecological richness and diversity. This history is celebrated through several museums and centers that expose current residents and transient visitors to what is new, now and next in Jacksonville, Florida. </p>
+
+  <div id="mapid"></div>
+  <script>
+    var mymap = L.map('mapid').setView([30.332, -81.656], 9.00);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/hmb1898/cjp4ln5qy08c92rnut708w61o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaG1iMTg5OCIsImEiOiJjanA0bGo2MDcwM2txM3FwZXBqbGllNWV4In0.gvpGmBgd-rfQRoFHkIYHHw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18
+    }).addTo(mymap);
+
+    var marker = L.marker([30.319, -81.660]).addTo(mymap);
+    marker.bindPopup("The Museum of Science and History (MOSH) has a planetarium and numerous exhibits on the history of Jacksonville.")
+
+    var marker = L.marker([30.315,-81.677]).addTo(mymap);
+    marker.bindPopup("The Cummer Museum of Art & Gardens has nearly 5,000 pieces in its permanent collection.")
+
+    var marker = L.marker ([30.335,-81.667,]).addTo(mymap);
+    marker.bindPopup("The Ritz Theatre and Museum preserves the cultural history of black people in Jacksonville. The venue often hosts movies and concerts.")
+
+    var marker = L.marker ([30.289,-81.394]).addTo(mymap);
+    marker.bindPopup("The Beaches Museum and History Park brings the history of Jacksonville beaches alive through art and artifacts of the commercial, ecological and military activities that defined the area. ")
+    </script>
+
+    <p> <a href= "http://themosh.org/">The Museum of Science and History</a>, or MOSH, is a staple in Jacksonville for kids and kids-at-heart alike. The museum is interactive with many traveling exhibits and an indoor planetarium. Currently, the museum offers exhibits on Jacksonville historic neighborhoods, local geniuses, energy choices, marine life and anatomy. </p>
+    <p> <a href= "https://www.cummermuseum.org/">The Cummer Museum of Art & Gardens</a> was founded in 1961 and has one of the largest art collections in the southeast. Currently, the museum is hosting exhibits on Japanese printmaking and artist Augusta Savage. </p>
+    <p> <a href= "http://beachesmuseum.org/category/exhibits/page/2/">The Beaches Museum</a> combines palatial beauty with fascinating history. The museum has not only an exhibition gallery but a cabin, garden, post office, railway depot,  chapel and foreman's house on its grounds.</p>
+    <p> <a href= "http://www.ritzjacksonville.com/">The Ritz Museum and Theatre </a> is based in the La Villa area, which was at one time known as the "Harlem of the South." There are currently exhibitions on local luminaries James Weldon and John Rosamond Johnson as well as an exhibit on cultural inspiration and conversation. </p>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+body {
+  margin: 10em;
+  padding: 1em;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+p {
+  font-family: "Crimson Text", serif;
+  font-size:2em;
+}
+#mapid {
+  height: 40em;
+  width: 75%;
+  margin-top: 1em;
+  border: 1em solid #000000;
+}
+
+@media screen and (max-width: 670px) {
+  body {
+      padding: 1em;
+      margin: 1em;
+}
+
+#mapid {
+  padding:none;
+  margin: none;
+}
